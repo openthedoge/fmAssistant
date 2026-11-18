@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#101014">
+<title>自由人小助手</title>
+<link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+<header class="masthead">
+  <h1>自由人小助手<span>Leader Lookup</span></h1>
+</header>
+
+<main id="main">
+  <!-- ① 嫌疑人选择器 -->
+  <section class="view active" data-view="lookup">
+    <div class="panel">
+      <div class="rowhead"><span>外观特征</span><span id="featCount">0 / 3</span></div>
+      <div id="features" class="toggles"></div>
+    </div>
+
+    <div class="panel">
+      <div class="rowhead"><span>发色</span></div>
+      <div id="hairs" class="hairs"></div>
+    </div>
+
+    <div id="combo" class="combo">—</div>
+    <div id="tiles" class="tiles">
+      <div class="empty">选 3 个特征 + 发色</div>
+    </div>
+    <div id="hint" class="hint">—</div>
+
+    <div class="actions">
+      <button id="resetBtn" type="button" class="ghost">重置</button>
+      <button id="copyBtn" type="button" class="ghost" disabled>复制名单</button>
+    </div>
+
+    <p class="credit">
+      本应用内容（数据与首领图片）取自
+      <a href="http://trashcan.fr/freelancer/" target="_blank" rel="noopener">trashcan.fr 网页版</a>，
+      非本应用原创；若与游戏实际有出入，非本应用原因。
+    </p>
+  </section>
+
+  <!-- ② 道具分布：一级地图 / 二级道具 / 三级文章 -->
+  <section class="view" data-view="items">
+    <div id="itemL1" class="subview active">
+      <p class="credit">数据来源于全网各处收集，不保证最新。当前数据整理时间 2026.07</p>
+      <input id="mapSearch" class="search" type="search" placeholder="搜地图或道具，可空格多关键词，如「巴黎 手枪」" autocomplete="off">
+      <div id="mapGrid" class="mapgrid"></div>
+    </div>
+
+    <div id="itemL2" class="subview">
+      <div class="crumb">
+        <button id="backL1" class="back" type="button">‹ 地图</button>
+        <span id="mapTitle">—</span>
+      </div>
+      <div id="itemGrid" class="pills"></div>
+    </div>
+
+    <div id="itemL3" class="subview">
+      <div class="crumb">
+        <button id="backL2" class="back" type="button">‹ 道具</button>
+        <span id="itemTitle">—</span>
+      </div>
+      <article id="articleBody" class="article"></article>
+    </div>
+  </section>
+
+  <!-- ③ 其它 -->
+  <section class="view" data-view="settings">
+    <div id="setMain" class="subview active">
+      <div class="panel">
+        <div class="setting">
+          <div>
+            <b>深色模式</b>
+            <span>切换明暗配色</span>
+          </div>
+          <input type="checkbox" id="darkToggle" class="switch">
+        </div>
+        <div class="setting">
+          <div>
+            <b>自定义图片</b>
+            <span>开启后长按嫌疑人图片可替换，自动裁剪为原图尺寸</span>
+          </div>
+          <input type="checkbox" id="customToggle" class="switch">
+        </div>
+      </div>
+
+      <div class="panel">
+        <button type="button" id="aboutBtn" class="setting link">
+          <div>
+            <b>关于</b>
+            <span>作者：CC</span>
+          </div>
+          <span class="chev">›</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="setAbout" class="subview">
+      <div class="crumb">
+        <button id="backAbout" class="back" type="button">‹ 返回</button>
+        <span>关于</span>
+      </div>
+      <article id="aboutBody" class="article"></article>
+    </div>
+  </section>
+</main>
+
+<nav class="tabbar">
+  <button type="button" class="tab active" data-tab="lookup">嫌疑人</button>
+  <button type="button" class="tab" data-tab="items">道具分布</button>
+  <button type="button" class="tab" data-tab="settings">其它</button>
+</nav>
+
+<input type="file" id="fileInput" accept="image/*" hidden>
+
+<script src="data/leaders.js?v=3"></script>
+<script src="data/gallery-bundle.js"></script>
+<script src="data/items.js?v=4"></script>
+<script src="data/coverage.js?v=4"></script>
+<script src="app.js?v=4"></script>
+</body>
+</html>
