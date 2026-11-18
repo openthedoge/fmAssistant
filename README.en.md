@@ -5,7 +5,7 @@
 # Freelancer Helper
 
 A self-use HITMAN 3 Freelancer helper tool, fully offline web app.
-
+Pay the noble Whale Girl 5 yuan for the production.
 ---
 
 ## English Description
